@@ -1,9 +1,9 @@
 import { Product } from '@/types/product';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getCleanImageUrl } from '@/utils/imageHelper';
 import AddToCart from '@/components/AddToCart';
+import ProductImage from '@/components/ProductImage';
 
 
 
@@ -55,13 +55,9 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
       <div className="mx-auto max-w-2xl overflow-hidden rounded-lg bg-white shadow-md dark:bg-zinc-900">
         <div className="grid sm:grid-cols-2">
           <div className="relative h-64 w-full bg-zinc-100 sm:h-auto dark:bg-zinc-800">
-             <Image
+             <ProductImage
               src={imageUrl}
               alt={product.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
             />
           </div>
           <div className="p-6">
@@ -83,7 +79,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
              
             </div>
             <div className="flex flex-col gap-3">
-               <AddToCart />
+               <AddToCart price={product.price} />
               <Link
                 href="/"
                 className="w-full rounded-md border border-zinc-300 py-2 text-center text-sm font-semibold text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-600 dark:text-zinc-300 dark:hover:bg-zinc-800"
