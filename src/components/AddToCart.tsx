@@ -61,3 +61,4 @@ export default function AddToCart({ price }: { price: number }) {
     </div>
   );
 }
+ 

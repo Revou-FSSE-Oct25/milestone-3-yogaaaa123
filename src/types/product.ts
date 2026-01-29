@@ -16,3 +16,4 @@ export interface Product {
   updatedAt?: string;
   category: Category;
 }
+ 
