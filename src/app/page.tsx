@@ -3,7 +3,7 @@ import { Product } from '@/types/product';
 
 async function getProducts(): Promise<Product[]> {
   const res = await fetch('https://api.escuelajs.co/api/v1/products?offset=0&limit=20', {
-    cache: 'no-store', 
+    cache: 'no-store',
   });
 
   if (!res.ok) {
@@ -40,7 +40,7 @@ export default async function Home() {
         <div className="mx-auto max-w-7xl">
             <div className="mb-8 flex items-center justify-between">
                 <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
-                    Latest Products 
+                    Latest Products
                 </h1>
                 <a href="/about" className="text-sm font-semibold text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
                     About Us

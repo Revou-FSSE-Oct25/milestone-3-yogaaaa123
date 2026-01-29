@@ -51,7 +51,7 @@ export default function AddToCart({ price }: { price: number }) {
             +
           </button>
         </div>
-        <button 
+        <button
           onClick={handleAddToCart}
           className="flex-1 rounded-lg bg-black py-3 font-semibold text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
         >
