@@ -1,10 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function AddToCart({ price }: { price: number }) {
   const [quantity, setQuantity] = useState(1);
+  const [message, setMessage] = useState('');
   const total = price * quantity;
+
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage('');
+      }, 1500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
@@ -17,7 +28,7 @@ export default function AddToCart({ price }: { price: number }) {
   };
 
   const handleAddToCart = () => {
-    alert(`Added ${quantity} item(s) to cart! Total: $${total}`);
+    setMessage(`terimakasih sudah membeli`);
   };
 
   return (
@@ -30,6 +41,13 @@ export default function AddToCart({ price }: { price: number }) {
            ${total}
          </span>
       </div>
+      
+      {message && (
+        <div className="rounded-md bg-green-100 p-3 text-sm font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400">
+            {message}
+        </div>
+      )}
+
       <div className="flex flex-col gap-4 sm:flex-row">
         <div className="flex items-center rounded-lg border border-zinc-300 dark:border-zinc-700">
           <button

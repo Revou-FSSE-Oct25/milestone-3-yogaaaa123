@@ -2,7 +2,7 @@ import ProductCard from '@/components/ProductCard';
 import { Product } from '@/types/product';
 
 async function getProducts(): Promise<Product[]> {
-  const res = await fetch('https://api.escuelajs.co/api/v1/products?offset=0&limit=20', {
+  const res = await fetch('https://api.escuelajs.co/api/v1/products?offset=0&limit=1', {
     cache: 'no-store',
   });
 
@@ -42,9 +42,9 @@ export default async function Home() {
                 <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
                     Latest Products
                 </h1>
-                <a href="/about" className="text-sm font-semibold text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
-                    About Us
-                </a>
+                  <a href="/about" className="text-sm font-semibold text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
+                      About Us
+                  </a>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {products.map((product) => (

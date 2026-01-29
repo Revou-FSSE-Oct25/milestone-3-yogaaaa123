@@ -8,10 +8,9 @@ import ProductImage from '@/components/ProductImage';
 
 
 async function getProduct(id: string): Promise<Product | null> {
-  console.log('Fetching product with ID:', id); // DEBUG log
   try {
     const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`, { cache: 'no-store' });
-    console.log('API Response status:', res.status); // DEBUG log
+
     if (!res.ok) {
         console.error('API Error:', await res.text());
         return null;
