@@ -1,7 +1,6 @@
 import { Product } from '@/types/product';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getCleanImageUrl } from '@/utils/imageHelper';
 import AddToCart from '@/components/AddToCart';
 import ProductImage from '@/components/ProductImage';
 
@@ -48,7 +47,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
     notFound();
   }
 
-  const imageUrl = getCleanImageUrl(product.images);
+  const imageUrl = product.images[0] || '';
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 p-4 dark:bg-black">

@@ -6,22 +6,25 @@ interface ProductCardProps {
   product: Product;
 }
 
-import { getCleanImageUrl } from '@/utils/imageHelper';
-
 export default function ProductCard({ product }: ProductCardProps) {
-  const imageUrl = getCleanImageUrl(product.images);
-  
+  const imageUrl = product.images[0] || '';
 
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950">
       <Link href={`/product/${product.id}`} className="block relative aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
-        <Image
-          src={imageUrl}
-          alt={product.title}
-          fill
-          className="object-cover transition-transform group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+{imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={product.title}
+            fill
+            className="object-cover transition-transform group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="h-full w-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center">
+            <span className="text-zinc-400 text-sm">No Image</span>
+          </div>
+        )}
       </Link>
       <div className="flex flex-1 flex-col p-4">
         <Link href={`/product/${product.id}`}>
