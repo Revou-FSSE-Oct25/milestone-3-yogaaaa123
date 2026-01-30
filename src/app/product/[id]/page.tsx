@@ -6,11 +6,10 @@ import ProductImage from '@/components/ProductImage';
 
 
 
-
 async function getProduct(id: string): Promise<Product | null> {
   try {
     const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`, { cache: 'no-store' });
-
+    
     if (!res.ok) {
         console.error('API Error:', await res.text());
         return null;

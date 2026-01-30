@@ -12,7 +12,7 @@ export default function AboutPage() {
             href="/"
             className="rounded-lg bg-black px-6 py-3 font-semibold text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
-            Back to Home
+            Back Home
             </Link>
         </div>
       </div>
